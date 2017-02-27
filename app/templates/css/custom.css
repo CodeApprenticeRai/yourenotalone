@@ -1,0 +1,14 @@
+/*I will store custom stuff here!*/
+
+@font-face {
+  font-family: 'Lato', sans-serif;
+}
+
+.text-to-bottom {
+
+}
+
+img.resize{
+   max-width:50%;
+   max-height:50%;
+}
