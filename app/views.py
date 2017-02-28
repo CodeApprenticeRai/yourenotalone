@@ -4,6 +4,7 @@ from app import app
 import praw
 import random
 
+#Reddit Authentication
 reddit = praw.Reddit(client_id = '', client_secret = '', user_agent ='')
 subreddit = reddit.subreddit('depression')
 dpostdic = {}
@@ -15,14 +16,15 @@ def get_pairs():
             dpostdic[str(submission.title)] = submission.selftext
     return dpostdic
 
-response = get_pairs()
+get_pairs()
+#choose a random title, post pair from the above dictionary
 d_title, d_post = random.choice(list(dpostdic.items()))
 
+#Copypaste from Flask Tutorial Site (Only half certain what this doesx)
 @app.route('/')
 @app.route('/index')
 
 
 def index():
-    user = {'nickname': 'Miguel'} # fake user
     d_user = "Replace_DUser"
-    return render_template('index.html', d_title = d_title, d_post = d_post, d_user = d_user, response = response)
+    return render_template('index.html', d_title = d_title, d_post = d_post, d_user = d_user)
